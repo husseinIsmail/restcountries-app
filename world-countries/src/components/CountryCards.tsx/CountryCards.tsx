@@ -22,10 +22,10 @@ const CountryCards = ({ countries }: CountryCardsProps): JSX.Element => {
             <Card.Img variant="top" src={country.flag} />
             <Card.Body>
               <Card.Title className='country-card-title'>{country.name}</Card.Title>
-              <Card.Text className='country-card-info'>
-                <p className='country-card-info-item'><span className='country-card-info-meta'>Population:</span> {formatPopulation(country.population)}</p>
-                <p className='country-card-info-item'><span className='country-card-info-meta'>Region:</span> {country.region}</p>
-                <p className='country-card-info-item'><span className='country-card-info-meta'>Capital:</span> {country.capital}</p>
+              <Card.Text as={'div'} className='country-card-info'>
+                <div className='country-card-info-item'><span className='country-card-info-meta'>Population:</span> {formatPopulation(country.population)}</div>
+                <div className='country-card-info-item'><span className='country-card-info-meta'>Region:</span> {country.region}</div>
+                <div className='country-card-info-item'><span className='country-card-info-meta'>Capital:</span> {country.capital}</div>
               </Card.Text>
             </Card.Body>
           </Card>
