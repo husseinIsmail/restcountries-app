@@ -4,6 +4,7 @@ import CountryCards from '../../components/CountryCards.tsx/CountryCards';
 import { Col, Container, Row } from 'react-bootstrap';
 import { CountryBasicInfo } from '../../interfaces/CountryBasicInfo';
 import Search from '../../components/Search/Search';
+import RegionFilter from '../../components/RegionFilter/RegionFilter';
 
 const Home = (): JSX.Element => {
 
@@ -29,12 +30,20 @@ const Home = (): JSX.Element => {
     setFilteredCountries(searchedCountries);
   };
 
+  const filterByRegion = (region: string): void => {
+    if (region === 'All') setFilteredCountries(countries);
+    else setFilteredCountries(countries.filter((country: CountryBasicInfo) => country.region === region));
+  }
+  
   return (
     <div className='home'>
       <Container>
         <Row className='toolbox'>
           <Col sm={4} xs={12}>
             <Search searchInput={searchInput} onChange={searchCountries} />
+          </Col>
+          <Col sm={7} xs={5}>
+            <RegionFilter onSelectRegion={filterByRegion} />
           </Col>
         </Row>
         <CountryCards countries={filteredCountries} />
