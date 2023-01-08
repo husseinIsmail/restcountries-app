@@ -5,6 +5,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { CountryBasicInfo } from '../../interfaces/CountryBasicInfo';
 import Search from '../../components/Search/Search';
 import RegionFilter from '../../components/RegionFilter/RegionFilter';
+import SortButton from '../../components/SortButton/SortButton';
 
 const Home = (): JSX.Element => {
 
@@ -35,6 +36,11 @@ const Home = (): JSX.Element => {
     else setFilteredCountries(countries.filter((country: CountryBasicInfo) => country.region === region));
   }
   
+  const sortByPopulation = (): void => {
+    const sortedCountries = [...filteredCountries].sort((a: CountryBasicInfo, b: CountryBasicInfo) => b.population - a.population)
+    setFilteredCountries(sortedCountries);
+  }
+
   return (
     <div className='home'>
       <Container>
@@ -44,6 +50,9 @@ const Home = (): JSX.Element => {
           </Col>
           <Col sm={7} xs={5}>
             <RegionFilter onSelectRegion={filterByRegion} />
+          </Col>
+          <Col sm={1} xs={7}>
+            <SortButton onClick={sortByPopulation} />
           </Col>
         </Row>
         <CountryCards countries={filteredCountries} />

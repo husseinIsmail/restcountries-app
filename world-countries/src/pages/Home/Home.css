@@ -3,8 +3,16 @@
   background-color: hsl(0, 0%, 98%);
 }
 
+.toolbox {
+  margin-bottom: 40px;
+}
+
 @media (max-width: 375px) {
   .home {
     padding-top: 20px;
+  }
+
+  .toolbox {
+    margin-bottom: 20px;
   }
 }
