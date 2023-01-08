@@ -5,15 +5,6 @@ import { BrowserRouter } from 'react-router-dom';
 import { formatPopulation } from '../../utils/formatPopulation';
 
 describe('CountryCards component', () => {
-  beforeAll(() => {
-    jest.spyOn(global, 'fetch').mockImplementation(
-      jest.fn(
-        () => Promise.resolve({
-          json: () => Promise.resolve(fakeCountries)
-        }),
-      ) as jest.Mock);
-  });
-
   it('Renders all country cards', async () => {
     render(<BrowserRouter><CountryCards countries={fakeCountries} /></BrowserRouter>);
 
@@ -71,9 +62,5 @@ describe('CountryCards component', () => {
       expect(firstCountryPopulation).toBeTruthy();
       expect(lastCountryPopulation).toBeTruthy();
     });
-  });
-
-  afterAll(() => {
-    jest.restoreAllMocks();
   });
 });
