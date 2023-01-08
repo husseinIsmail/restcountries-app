@@ -1,0 +1,29 @@
+.country-card {
+  cursor: pointer;
+  border: 0px !important;
+  box-shadow: 0px 0px 3px hsl(0deg 0% 92%);
+}
+
+.country-card > img {
+  height: 170px;
+}
+
+.country-card-title {
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  margin: 10px 0px 12px 0px !important;
+}
+
+.country-card-info {
+  display: inline-block;
+  font-size: 13px;
+  padding-bottom: 15px !important;
+}
+
+.country-card-info-item {
+  margin: 5px 0px;
+}
+
+.country-card-info-meta {
+  font-weight: 600;
+}
