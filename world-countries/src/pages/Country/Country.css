@@ -1,4 +1,4 @@
-.back-btn {
+.country-btn {
   margin-top: 50px;
   margin-bottom: 45px;
   padding: 5px 20px;
@@ -29,7 +29,7 @@
 }
 
 .country-info {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .country-info > div {
