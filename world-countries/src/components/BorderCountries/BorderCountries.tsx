@@ -23,23 +23,20 @@ const BorderCountries = ({ borderCountryCodes }: BorderCountriesProps): JSX.Elem
           setBorderCountries(borderCountryNames);
         },
         (error) => {
+          console.error('Error fetching country borders: ', error);
           setApiError(error);
         });
   }, [borderCountryCodes]);
 
-  if (apiError) {
-    console.error('Error fetching country borders: ', apiError);
-    return <p>*Error fetching country borders*</p>
-  } else {
-    return (
-      <div className='country-border-countries'>
-        <span className='country-info-meta border-countries-meta'>Border Countries: </span>
-        {borderCountries.map((borderCountry) =>
-          <Button key={borderCountry} onClick={() => navigate(`/country/${borderCountry}`)} className='country-btn country-border-btn'>{borderCountry}</Button>
-        )}
-      </div>
-    );
-  }
+  if (apiError) return <p>*Error fetching country borders*</p>;
+  else return (
+    <div className='country-border-countries'>
+      <span className='country-info-meta border-countries-meta'>Border Countries: </span>
+      {borderCountries.map((borderCountry) =>
+        <Button key={borderCountry} onClick={() => navigate(`/country/${borderCountry}`)} className='country-btn country-border-btn'>{borderCountry}</Button>
+      )}
+    </div>
+  );
 }
 
 export default BorderCountries;
