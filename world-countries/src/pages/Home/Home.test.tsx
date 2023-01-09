@@ -56,12 +56,12 @@ describe('Home page', () => {
     await user.click(screen.getByText('Sort by Population'));
 
     await waitFor(() => {
-      expect(screen.getAllByAltText('Population:')).toHaveLength(fakeCountries.length);
+      expect(screen.getAllByText('Population:')).toHaveLength(fakeCountries.length);
     });
 
     await waitFor(() => {
       // eslint-disable-next-line testing-library/no-node-access
-      expect(screen.queryAllByText('Population:')[0].previousSibling?.textContent).toEqual(`Population: ${formatPopulation(212559409)}`);
+      expect(screen.queryAllByText('Population:')[0].parentElement?.textContent).toEqual(`Population: ${formatPopulation(212559409)}`);
     });
   });
 
