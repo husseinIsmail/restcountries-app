@@ -52,7 +52,7 @@ const Country = (): JSX.Element => {
     <Container>
       <Row>
         <Col sm={2} xs={4}>
-          <Button onClick={() => navigate('/')} className='country-btn'><i className="fa-solid fa-arrow-left back-btn-icon"></i>Back</Button>
+          <Button onClick={() => navigate('/')} className='country-btn'><i className="fa-solid fa-arrow-left country-btn-icon"></i>Back</Button>
         </Col>
       </Row>
       <Row>
@@ -69,16 +69,16 @@ const Country = (): JSX.Element => {
           </Row>
           <Row>
             <Col sm={6} xs={12} className='country-info'>
-              <div className=''><span className='country-info-meta'>Native Name: </span>{countryInfo.nativeName}</div>
-              <div className=''><span className='country-info-meta'>Population: </span>{formatPopulation(countryInfo.population)}</div>
-              <div className=''><span className='country-info-meta'>Region: </span>{countryInfo.region}</div>
-              <div className=''><span className='country-info-meta'>Sub Region: </span>{countryInfo.subregion}</div>
-              <div className=''><span className='country-info-meta'>Capital: </span>{countryInfo.capital}</div>
+              <div><span className='country-info-meta'>Native Name: </span>{countryInfo.nativeName}</div>
+              <div><span className='country-info-meta'>Population: </span>{formatPopulation(countryInfo.population)}</div>
+              <div><span className='country-info-meta'>Region: </span>{countryInfo.region}</div>
+              <div><span className='country-info-meta'>Sub Region: </span>{countryInfo.subregion}</div>
+              <div><span className='country-info-meta'>Capital: </span>{countryInfo.capital}</div>
             </Col>
             <Col sm={6} xs={12} className='country-info'>
-              <div className=''><span className='country-info-meta'>Top Level Domain: </span>{countryInfo.topLevelDomain}</div>
-              <div className=''><span className='country-info-meta'>Currencies: </span>{formatCurrencies(countryInfo.currencies)}</div>
-              <div className=''><span className='country-info-meta'>Languages: </span>{formatLanguages(countryInfo.languages)}</div>
+              <div><span className='country-info-meta'>Top Level Domain: </span>{countryInfo.topLevelDomain}</div>
+              <div><span className='country-info-meta'>Currencies: </span>{formatCurrencies(countryInfo.currencies)}</div>
+              <div><span className='country-info-meta'>Languages: </span>{formatLanguages(countryInfo.languages)}</div>
             </Col>
           </Row>
           <Row>

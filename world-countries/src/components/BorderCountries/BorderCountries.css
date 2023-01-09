@@ -8,3 +8,14 @@
   padding: 3px 30px;
   margin: 3px 5px; 
 }
+
+@media (max-width: 375px) {
+  .country-border-countries {
+    margin-bottom: 20px;
+  }
+
+  .border-countries-meta {
+    margin-bottom: 5px;
+    display: block;
+  }
+}

@@ -33,7 +33,7 @@ const BorderCountries = ({ borderCountryCodes }: BorderCountriesProps): JSX.Elem
   } else {
     return (
       <div className='country-border-countries'>
-        <span className='country-info-meta'>Border Countries: </span>
+        <span className='country-info-meta border-countries-meta'>Border Countries: </span>
         {borderCountries.map((borderCountry) =>
           <Button key={borderCountry} onClick={() => navigate(`/country/${borderCountry}`)} className='country-btn country-border-btn'>{borderCountry}</Button>
         )}
