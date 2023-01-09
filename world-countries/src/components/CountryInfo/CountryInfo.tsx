@@ -1,25 +1,16 @@
 import { CountryExtendedInfo } from "../../interfaces/CountryExtendedInfo";
-import { Currency } from "../../interfaces/Currency";
 import { Language } from "../../interfaces/Language";
 import { formatPopulation } from "../../utils/formatPopulation";
 import BorderCountries from "../../components/BorderCountries/BorderCountries";
 import { Row, Col } from "react-bootstrap";
+import { formatCurrencies } from "../../utils/formatCurrencies";
+import { formatLanguages } from "../../utils/formatLanguages";
 
 interface CountryInfoProps {
   countryInfo: CountryExtendedInfo
 }
+
 const CountryInfo = ({ countryInfo }: CountryInfoProps): JSX.Element => {
-
-  const formatCurrencies = (currencies: Currency[]): string => {
-    return currencies.map((currency: Currency) => currency.name).toString();
-  };
-
-  const formatLanguages = (languages: Language[]): string => {
-    return languages.map((language: Language, idx) => {
-      return idx > 0 ? ` ${language.name}` : `${language.name}`;
-    }).toString();
-  }
-
   return (
     <Row>
       <Col md={5} xs={12}>
