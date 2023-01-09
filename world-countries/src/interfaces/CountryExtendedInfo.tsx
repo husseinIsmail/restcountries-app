@@ -8,7 +8,7 @@ export interface CountryExtendedInfo {
   region: string,
   subregion: string,
   capital: string,
-  topLevelDomain: string,
+  topLevelDomain: string [],
   currencies: Currency[],
   languages: Language[],
   borders: string[],
