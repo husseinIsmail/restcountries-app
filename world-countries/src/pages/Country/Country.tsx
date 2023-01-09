@@ -5,6 +5,9 @@ import { Button, Container, Row, Col } from "react-bootstrap";
 import './Country.css';
 import Loader from "../../components/loader/Loader";
 import { useNavigate } from 'react-router-dom';
+import { formatPopulation } from "../../utils/formatPopulation";
+import { Currency } from "../../interfaces/Currency";
+import { Language } from "../../interfaces/Language";
 
 const Country = (): JSX.Element => {
   const [countryInfo, setCountryInfo] = useState<CountryExtendedInfo | null>(null);
@@ -32,17 +35,55 @@ const Country = (): JSX.Element => {
         });
   }, [countryName]);
 
-  if (apiError) return <p>{apiError}</p>
-  else if (isLoading) return <Loader />
-  else return (
+  const formatCurrencies = (currencies: Currency[]): string => {
+    return currencies.map((currency: Currency) => currency.name).toString();
+  };
+
+  const formatLanguages = (languages: Language[]): string => {
+    return languages.map((language: Language, idx) => {
+      return idx > 0 ? ` ${language.name}` : `${language.name}`;
+    }).toString();
+  }
+
+  if (isLoading) return <Loader />;
+  else if (countryInfo) return (
     <Container>
       <Row>
         <Col sm={2} xs={4}>
           <Button onClick={() => navigate('/')} className='back-btn'><i className="fa-solid fa-arrow-left back-btn-icon"></i>Back</Button>
         </Col>
       </Row>
+      <Row>
+        <Col sm={5} xs={12}>
+          <img src={countryInfo?.flag} alt={`${countryInfo?.name} flag`} className='country-img' />
+        </Col>
+        <Col sm={1} xs={12}>
+        </Col>
+        <Col sm={6} xs={12}>
+          <Row>
+            <Col sm={12} xs={12}>
+              <div className='country-name'>{countryInfo?.name}</div>
+            </Col>
+          </Row>
+          <Row>
+            <Col sm={6} xs={12} className='country-info'>
+              <div className=''><span className='country-info-meta'>Native Name: </span>{countryInfo.nativeName}</div>
+              <div className=''><span className='country-info-meta'>Population: </span>{formatPopulation(countryInfo.population)}</div>
+              <div className=''><span className='country-info-meta'>Region: </span>{countryInfo.region}</div>
+              <div className=''><span className='country-info-meta'>Sub Region: </span>{countryInfo.subregion}</div>
+              <div className=''><span className='country-info-meta'>Capital: </span>{countryInfo.capital}</div>
+            </Col>
+            <Col sm={6} xs={12} className='country-info'>
+              <div className=''><span className='country-info-meta'>Top Level Domain: </span>{countryInfo.topLevelDomain}</div>
+              <div className=''><span className='country-info-meta'>Currencies: </span>{formatCurrencies(countryInfo.currencies)}</div>
+              <div className=''><span className='country-info-meta'>Languages: </span>{formatLanguages(countryInfo.languages)}</div>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
     </Container>
-  )
+  );
+  else return <p>{apiError}</p>;
 };
 
 export default Country;
