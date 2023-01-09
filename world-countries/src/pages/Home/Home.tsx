@@ -6,22 +6,34 @@ import { CountryBasicInfo } from '../../interfaces/CountryBasicInfo';
 import Search from '../../components/Search/Search';
 import RegionFilter from '../../components/RegionFilter/RegionFilter';
 import SortButton from '../../components/SortButton/SortButton';
+import Loader from '../../components/loader/Loader';
 
 const Home = (): JSX.Element => {
 
   const [countries, setCountries] = useState<CountryBasicInfo[]>([]);
   const [searchInput, setSearchInput] = useState<string>('');
   const [filteredCountries, setFilteredCountries] = useState<CountryBasicInfo[]>([]);
+  const [apiError, setApiError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const fetchCountries = async () => {
-      const response = await fetch('https://restcountries.com/v2/all?fields=name,population,region,capital,flag');
-      const fetchedCountries = await response.json();
-      setCountries(fetchedCountries);
-      setFilteredCountries(fetchedCountries);
-    };
-
-    fetchCountries();
+    fetch('https://restcountries.com/v2/all?fields=name,population,region,capital,flag')
+      .then(res => res.json())
+      .then(
+        (fetchedCountries) => {
+          if (fetchedCountries[0]?.name) {
+            setCountries(fetchedCountries);
+            setFilteredCountries(fetchedCountries);
+          } else {
+            console.error('Error fetching countries info from restcountries API: ', fetchedCountries);
+            setApiError('*Error fetching country info, please double check the name in the URL*');
+          }
+          setIsLoading(false);
+        },
+        (error) => {
+          setApiError(error);
+          setIsLoading(false);
+        });
   }, []);
 
   const searchCountries = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -41,7 +53,8 @@ const Home = (): JSX.Element => {
     setFilteredCountries(sortedCountries);
   }
 
-  return (
+  if (isLoading) return <Loader />
+  else if (filteredCountries.length) return (
     <div className='home'>
       <Container>
         <Row className='toolbox'>
@@ -59,6 +72,7 @@ const Home = (): JSX.Element => {
       </Container>
     </div >
   );
+  else return <p>{apiError}</p>;
 };
 
 export default Home;
