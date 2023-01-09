@@ -3,7 +3,6 @@ import { fakeCountry } from '../../testing-helpers/fakeCountry';
 import Country from './Country';
 import { BrowserRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
-import { formatPopulation } from '../../utils/formatPopulation';
 import { fakeBorderCountry } from '../../testing-helpers/fakeBorderCountry';
 import { formatCurrencies } from '../../utils/formatCurrencies';
 import { formatLanguages } from '../../utils/formatLanguages';
@@ -49,7 +48,7 @@ describe('Home page', () => {
       render(<BrowserRouter><Country /></BrowserRouter>);
 
       await waitFor(() => {
-        expect(screen.getByText(formatPopulation(fakeCountry[0].population))).toBeInTheDocument();
+        expect(screen.getByText(fakeCountry[0].population.toLocaleString('en-US'))).toBeInTheDocument();
       });
     });
 

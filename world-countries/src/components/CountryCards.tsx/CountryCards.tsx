@@ -4,7 +4,6 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import './CountryCards.css';
 import { useNavigate } from 'react-router-dom';
-import { formatPopulation } from '../../utils/formatPopulation'; 
 
 interface CountryCardsProps {
   countries: CountryBasicInfo[] | [];
@@ -27,7 +26,7 @@ const CountryCards = ({ countries }: CountryCardsProps): JSX.Element => {
             <Card.Body>
               <Card.Title className='country-card-title'>{country.name}</Card.Title>
               <Card.Text as={'div'} className='country-card-info'>
-                <div className='country-card-info-item'><span className='country-card-info-meta'>Population:</span> {formatPopulation(country.population)}</div>
+                <div className='country-card-info-item'><span className='country-card-info-meta'>Population:</span> {country.population.toLocaleString('en-US')}</div>
                 <div className='country-card-info-item'><span className='country-card-info-meta'>Region:</span> {country.region}</div>
                 <div className='country-card-info-item'><span className='country-card-info-meta'>Capital:</span> {country.capital}</div>
               </Card.Text>

@@ -1,6 +1,4 @@
 import { CountryExtendedInfo } from "../../interfaces/CountryExtendedInfo";
-import { Language } from "../../interfaces/Language";
-import { formatPopulation } from "../../utils/formatPopulation";
 import BorderCountries from "../../components/BorderCountries/BorderCountries";
 import { Row, Col } from "react-bootstrap";
 import { formatCurrencies } from "../../utils/formatCurrencies";
@@ -27,7 +25,7 @@ const CountryInfo = ({ countryInfo }: CountryInfoProps): JSX.Element => {
         <Row>
           <Col md={6} xs={12} className='country-info'>
             <div><span className='country-info-meta'>Native Name: </span>{countryInfo.nativeName}</div>
-            <div><span className='country-info-meta'>Population: </span>{formatPopulation(countryInfo.population)}</div>
+            <div><span className='country-info-meta'>Population: </span>{countryInfo.population.toLocaleString('en-US')}</div>
             <div><span className='country-info-meta'>Region: </span>{countryInfo.region}</div>
             <div><span className='country-info-meta'>Sub Region: </span>{countryInfo.subregion}</div>
             <div><span className='country-info-meta'>Capital: </span>{countryInfo.capital}</div>

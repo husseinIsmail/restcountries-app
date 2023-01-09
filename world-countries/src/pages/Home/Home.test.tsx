@@ -3,7 +3,6 @@ import { fakeCountries } from '../../testing-helpers/fakeCountries';
 import Home from './Home';
 import { BrowserRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
-import { formatPopulation } from '../../utils/formatPopulation';
 
 describe('Home page', () => {
   beforeEach(() => {
@@ -61,7 +60,7 @@ describe('Home page', () => {
 
     await waitFor(() => {
       // eslint-disable-next-line testing-library/no-node-access
-      expect(screen.queryAllByText('Population:')[0].parentElement?.textContent).toEqual(`Population: ${formatPopulation(212559409)}`);
+      expect(screen.queryAllByText('Population:')[0].parentElement?.textContent).toEqual(`Population: ${(212559409).toLocaleString('en-US')}`);
     });
   });
 

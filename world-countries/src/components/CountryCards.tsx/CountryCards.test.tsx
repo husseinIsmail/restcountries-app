@@ -2,7 +2,6 @@ import { render, screen } from '@testing-library/react';
 import { fakeCountries } from '../../testing-helpers/fakeCountries';
 import CountryCards from './CountryCards';
 import { BrowserRouter } from 'react-router-dom';
-import { formatPopulation } from '../../utils/formatPopulation';
 
 describe('CountryCards component', () => {
   it('Renders all country cards', async () => {
@@ -36,8 +35,8 @@ describe('CountryCards component', () => {
     it("Renders country's population", async () => {
       render(<BrowserRouter> <CountryCards countries={fakeCountries} /></BrowserRouter >);
 
-      const firstCountryPopulation = screen.queryByText(formatPopulation(fakeCountries[0].population));
-      const lastCountryPopulation = screen.queryByText(formatPopulation(fakeCountries[fakeCountries.length - 1].population));
+      const firstCountryPopulation = screen.queryByText(fakeCountries[0].population.toLocaleString('en-US'));
+      const lastCountryPopulation = screen.queryByText(fakeCountries[fakeCountries.length - 1].population.toLocaleString('en-US'));
 
       expect(firstCountryPopulation).toBeTruthy();
       expect(lastCountryPopulation).toBeTruthy();
