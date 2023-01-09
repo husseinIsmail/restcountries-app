@@ -2,6 +2,7 @@ import './App.css';
 import Home from './pages/Home/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import Country from './pages/Country/Country';
 import NoMatch from './pages/NoMatch/NoMatch';
 
 const App = (): JSX.Element => {
@@ -14,6 +15,7 @@ const App = (): JSX.Element => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path='/home' element={<Home />} />
+          <Route path='/country/:countryName' element={<Country />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
       </BrowserRouter>

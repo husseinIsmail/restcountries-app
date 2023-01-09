@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import './CountryCards.css';
+import { useNavigate } from 'react-router-dom';
 import { formatPopulation } from '../../utils/formatPopulation'; 
 
 interface CountryCardsProps {
@@ -11,15 +12,17 @@ interface CountryCardsProps {
 
 const CountryCards = ({ countries }: CountryCardsProps): JSX.Element => {
 
-  const formatPopulation = (population: number): string => {
-    return new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(population);
+  const navigate = useNavigate();
+
+  const navigateToCountry = (countryName: string): void => {
+    navigate(`/country/${countryName}`);
   };
 
   return (
     <Row sm={4} xs={1} className="g-5">
       {countries.map((country) => (
         <Col key={country.name}>
-          <Card className='country-card'>
+          <Card className='country-card' onClick={() => navigateToCountry(country.name)}>
             <Card.Img variant="top" src={country.flag} />
             <Card.Body>
               <Card.Title className='country-card-title'>{country.name}</Card.Title>
