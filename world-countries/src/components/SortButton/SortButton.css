@@ -9,10 +9,9 @@
   background-color: hsl(0, 0%, 92%) !important;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 576px) {
   .sort-btn {
     font-size: 10px;
     margin-top: 10px;
-    margin-left: -15px;
   }
 }

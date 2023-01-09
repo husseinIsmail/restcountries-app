@@ -19,7 +19,7 @@ const CountryCards = ({ countries }: CountryCardsProps): JSX.Element => {
   };
 
   return (
-    <Row sm={4} xs={1} className="g-5">
+    <Row md={4} xs={1} className="g-5">
       {countries.map((country) => (
         <Col key={country.name}>
           <Card className='country-card' onClick={() => navigateToCountry(country.name)}>

@@ -7,7 +7,7 @@
   margin-bottom: 40px;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 576px) {
   .home {
     padding-top: 20px;
   }

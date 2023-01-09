@@ -23,7 +23,7 @@
   color: hsl(0, 0%, 52%);
 }
 
-@media (max-width: 375px) {
+@media (max-width: 576px) {
   .search-icon {
     font-size: 14px;
   }

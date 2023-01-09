@@ -45,13 +45,13 @@ const Home = (): JSX.Element => {
     <div className='home'>
       <Container>
         <Row className='toolbox'>
-          <Col sm={4} xs={12}>
+          <Col md={4} xs={12}>
             <Search searchInput={searchInput} onChange={searchCountries} />
           </Col>
-          <Col sm={7} xs={5}>
+          <Col md={7} xs={5}>
             <RegionFilter onSelectRegion={filterByRegion} />
           </Col>
-          <Col sm={1} xs={7}>
+          <Col md={1} xs={7}>
             <SortButton onClick={sortByPopulation} />
           </Col>
         </Row>
