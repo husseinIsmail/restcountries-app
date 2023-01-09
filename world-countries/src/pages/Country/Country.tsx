@@ -22,6 +22,7 @@ const Country = (): JSX.Element => {
       .then(
         (fetchedCountryInfo) => {
           if (fetchedCountryInfo[0].name) {
+            if (!fetchedCountryInfo[0].borders) fetchedCountryInfo[0].borders = [];
             setCountryInfo(fetchedCountryInfo[0]);
           } else {
             console.error('Error fetching country info from restcountries API: ', fetchedCountryInfo);
