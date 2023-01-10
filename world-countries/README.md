@@ -1,4 +1,10 @@
-# Getting Started with Create React App
+# World Countries Project for SaltPay
+
+## Notes & Assumptions
+- I used a combination of plain css(header) and Bootstrap's grid system to demonstrate my abilities to do both
+- Tests were favored for the sake of providing value for the feature and making sense, hence the integration tests in `Home.test.tsx` & `Country.test.tsx`. More unit/isolated tests can be found in `CountryCards.test.tsx` & `objNamesToStringArr.test.tsx`
+- Promises have been favored over Async-Await's Try & Catch for fetching data as means for better error handling(https://reactjs.org/docs/faq-ajax.html)
+- Layout has been built as responsive as possible on smaller screens as time allows, however I matched the provided mockup for mobile screen sizes
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
