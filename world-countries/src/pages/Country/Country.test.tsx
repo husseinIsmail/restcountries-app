@@ -4,8 +4,7 @@ import Country from './Country';
 import { BrowserRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import { fakeBorderCountry } from '../../testing-helpers/fakeBorderCountry';
-import { formatCurrencies } from '../../utils/formatCurrencies';
-import { formatLanguages } from '../../utils/formatLanguages';
+import { objArrNamesToString } from '../../utils/objArrNamesToString';
 
 describe('Home page', () => {
   beforeEach(() => {
@@ -85,14 +84,14 @@ describe('Home page', () => {
     it("Renders country's currencies", async () => {
       render(<BrowserRouter><Country /></BrowserRouter>);
       await waitFor(() => {
-        expect(screen.getByText(formatCurrencies(fakeCountry[0].currencies))).toBeInTheDocument();
+        expect(screen.getByText(objArrNamesToString(fakeCountry[0].currencies))).toBeInTheDocument();
       });
     });
 
     it("Renders country's languages", async () => {
       render(<BrowserRouter><Country /></BrowserRouter>);
       await waitFor(() => {
-        expect(screen.getByText(formatLanguages(fakeCountry[0].languages))).toBeInTheDocument();
+        expect(screen.getByText(objArrNamesToString(fakeCountry[0].languages))).toBeInTheDocument();
       });
     });
   });

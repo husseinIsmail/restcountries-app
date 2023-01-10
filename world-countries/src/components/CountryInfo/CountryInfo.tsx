@@ -1,8 +1,7 @@
 import { CountryExtendedInfo } from "../../interfaces/CountryExtendedInfo";
 import BorderCountries from "../../components/BorderCountries/BorderCountries";
 import { Row, Col } from "react-bootstrap";
-import { formatCurrencies } from "../../utils/formatCurrencies";
-import { formatLanguages } from "../../utils/formatLanguages";
+import { objArrNamesToString } from "../../utils/objArrNamesToString";
 
 interface CountryInfoProps {
   countryInfo: CountryExtendedInfo
@@ -32,8 +31,8 @@ const CountryInfo = ({ countryInfo }: CountryInfoProps): JSX.Element => {
           </Col>
           <Col md={6} xs={12} className='country-info'>
             <div><span className='country-info-meta'>Top Level Domain: </span>{countryInfo.topLevelDomain}</div>
-            <div><span className='country-info-meta'>Currencies: </span>{formatCurrencies(countryInfo.currencies)}</div>
-            <div><span className='country-info-meta'>Languages: </span>{formatLanguages(countryInfo.languages)}</div>
+            <div><span className='country-info-meta'>Currencies: </span>{objArrNamesToString(countryInfo.currencies)}</div>
+            <div><span className='country-info-meta'>Languages: </span>{objArrNamesToString(countryInfo.languages)}</div>
           </Col>
         </Row>
         <Row>
