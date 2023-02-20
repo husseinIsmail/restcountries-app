@@ -1,51 +1,52 @@
-### Objective
+# World Countries Project for SaltPay
 
-Your challenge is to integrate with the [REST Countries API](https://restcountries.com/#api-endpoints-v2) to pull country data and display it like in the designs. Use TypeScript and React.
+## Notes & Assumptions
+- I used a combination of plain css(header) and Bootstrap's grid system to demonstrate my abilities to do both
+- Tests were favored for the sake of providing value for the feature and making sense, hence the integration tests in `Home.test.tsx` & `Country.test.tsx`. More unit/isolated tests can be found in `CountryCards.test.tsx` & `objNamesToStringArr.test.tsx`
+- Promises have been favored over Async-Await's Try & Catch for fetching data as means for better error handling(https://reactjs.org/docs/faq-ajax.html)
+- Layout has been built as responsive as possible on smaller screens as time allows, however I matched the provided mockup for mobile screen sizes
 
-### Brief
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Your task is to build out the project to the designs inside the `/design` folder. 
+## Available Scripts
 
-In this challenge, you will find mobile and desktop designs for both pages.
+In the project directory, you can run:
 
-The designs are in JPG static format. This will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. This should help train your eye to perceive differences in spacings and sizes. Feel free to use any component libraries you may need.
+### `npm start`
 
-There are no assets for this challenge, as the country flags will be pulled from the [REST Countries API](https://restcountries.com/#api-endpoints-v2) and you can use an icon font library for the icons.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-There is a `style-guide.md` file, which contains the information you'll need, such as color palette and fonts.
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-If you make any assumptions, trade-offs or de-prioritise features for timeliness, please document these decisions.
+### `npm test`
 
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-Your users should be able to:
+### `npm run build`
 
--   See all countries from the API on the homepage
--   Search for a country using an `input` field
--   Filter countries by region
--   Sort countries by population: most -> less 
--   Click on a country to see more detailed information on a separate page
--   Click through to the border countries on the detail page
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### Evaluation Criteria
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
--   **TypeScript** and **React**  best practices
--   Show us your work through your commit history
--   We're looking for you to produce working code, with enough room to demonstrate how to structure components in a small program
--   Completeness: Did you complete the features?
--   Correctness: Does the functionality act in sensible, thought-out ways?
--   Maintainability: Is it written in a clean, maintainable way?
--   Scability: Is it written in a independent, modular way?
--   Testing: Is the system adequately tested?
+### `npm run eject`
 
-### Deliverables
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-Make sure to include all source code in the repository. 
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-### CodeSubmit
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-Please organize, design, test and document your code as if it were going into production - then push your changes to the master branch. After you have pushed your code, you may submit the assignment on the assignment page.
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-All the best and happy coding,
+## Learn More
 
-The SaltPay Team
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
